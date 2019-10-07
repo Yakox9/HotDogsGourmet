@@ -1,0 +1,36 @@
+.header{
+    height: 9%;
+    display: flex;
+    justify-content: space-between;
+    background: #3f51b5d8;
+}
+
+.header button.Active:after{
+    content: '';
+    background: rgba(103,58,183);
+    position: absolute;
+    width: 70%;
+    height: 5px;
+    bottom: 0;
+    left: 15%;
+}
+
+.shopMain{
+    display: flex;
+    padding: 0 15px;
+    height: 91%;
+
+}
+
+.shopMain .shopProducts{
+    width: 60%;
+    height: 100%;
+    overflow-y: scroll;
+    color: #3f51b5d8;
+}
+
+.shopMain .shopDetails{
+    width: 40%;
+    height: 100%;
+    color:#3f51b5d8;
+}

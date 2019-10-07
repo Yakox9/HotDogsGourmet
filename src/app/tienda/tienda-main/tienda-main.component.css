@@ -1,0 +1,43 @@
+.listProduct {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.listProduct .productItem {
+  width: 25%;
+  margin-bottom: 5px;
+  height: 41%;
+  margin-right: 3.96913%;
+  padding-bottom: 0;
+  cursor: pointer;
+}
+
+.listProduct .productItem:hover{
+    background: rgba(0,0,0,.5);
+}
+
+.mat-card-header .mat-card-title {
+    font-size: 18.8px;
+}
+.cardContent{
+    height: 34px;
+}
+.cardFooter{
+    display: flex;
+    justify-content: center;
+    background: rgba(103,58,183);
+    border-radius:  0 0 5px 5px ;
+}
+.cardFooter p{
+    text-align: center;
+}
+
+.mat-card-image{
+    height: 50%;
+    width: 112%;
+    padding: 0 5px;
+}

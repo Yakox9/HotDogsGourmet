@@ -1,0 +1,18 @@
+<h2>Productos</h2>
+<div class="listProduct">
+  <mat-card class="productItem" (click)="selectProduct(product)" *ngFor="let product of products">
+    <mat-card-header style="max-height: 15%;">
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-subtitle>{{(product.type===1)?"Perro Caliente":"Refresco"}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/Products/{{product.id}}.jpg" alt="{{product.name}}">
+    <mat-card-content class="cardContent">
+      <p>
+        {{product.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-footer class="cardFooter">
+      <p>Precio: {{product.price}} Bs</p>
+    </mat-card-footer>
+  </mat-card>
+</div>

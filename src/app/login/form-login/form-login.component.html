@@ -1,0 +1,23 @@
+<form class="formClass">
+    <div class="formTitle">
+        <h1>Iniciar Sesión</h1>
+    </div>
+    <div class="formMain">
+        <mat-form-field class="formInput">
+            <input  matInput name="user.username" #username="ngModel" placeholder="Ingrese su Usuario" type="text" class="example-right-align" [(ngModel)]="user.username" >
+        </mat-form-field>
+        <mat-form-field class="formInput">
+            <input  matInput name="user.pass" #pass="ngModel" placeholder="Ingrese su Contraseña" [type]="hide ? 'password' : 'text'" [(ngModel)]="user.pass">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+    <div class="formButton">
+        <button mat-raised-button color="primary" (click)="submit()">Acceder</button>
+    </div>
+</form>
+
+<div class="formFooter">
+    <p>@Copyright Eliana Becerra, Jesus Varela, Karen Chacon</p>
+</div>

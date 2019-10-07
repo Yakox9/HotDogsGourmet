@@ -1,0 +1,18 @@
+<mat-toolbar class="header">
+  <h1> Hot Dog's Gourmet</h1>
+  <nav>
+    <button mat-button [ngClass]="(productType)?'Active':''" (click)="changeProduct(true)">Perros Calientes</button>
+    <button mat-button [ngClass]="(!productType)?'Active':''" (click)="changeProduct(false)">Refrescos</button>
+    <button mat-button (click)="logout()">Salir</button>
+  </nav>
+  <h5 mat-card-title>Bienvenido, {{user.name}}</h5>
+</mat-toolbar>
+
+<main class="shopMain">
+  <div class="shopProducts">
+    <chd-tienda-main (productEmit)="openDialog($event)" [products]="products$"></chd-tienda-main>
+  </div>
+  <div class="shopDetails">
+    <chd-detail-bill (totalOut)="updateTotal($event)" [total]="total"></chd-detail-bill>
+  </div>
+</main>

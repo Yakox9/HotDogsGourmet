@@ -1,0 +1,83 @@
+.mainDetail{
+    max-height: 80%;
+    max-width: 100%;
+    margin-bottom: 15px;
+    font-weight: 100%;
+  
+}
+
+.mainDetail .mainListDetail{
+    max-width: 100%;
+    max-height: 60vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+}
+
+.mainDetail  .listHeader{
+    padding-left: 10px;
+    display: inline-flex;
+    text-align: start;
+    align-items: center;
+    background: #3f51b594;
+    color: white;
+    width: 96%;
+}
+
+.mainDetail  .listHeader .icon,
+.mainDetail  .listHeader .name,
+.mainDetail  .listHeader .total,
+.mainDetail  .listHeader .cant,
+.mainDetail  .listHeader  .buttons{
+    width: 20%;
+}
+
+.mainDetail .mainListDetail .listItem{
+    background: rgba(51, 51, 51, 0.9);
+    padding-left: 10px;
+    display: inline-flex;
+    text-align: start;
+    align-items: center;
+    color: white;
+    width: 97%;
+    margin-bottom:1px; 
+}
+
+.mainDetail .mainListDetail .listItem .icon,
+.mainDetail .mainListDetail .listItem .name,
+.mainDetail .mainListDetail .listItem .total,
+.mainDetail .mainListDetail .listItem .cant,
+.mainDetail .mainListDetail .listItem .buttons{
+    width: 20%;
+}
+
+.mainDetail .mainListDetail .listItem .buttons{
+    text-align: center;
+}
+
+
+.detailFooter{
+    display: flex;
+    justify-content: center;
+}
+
+.detailFooter button{
+    margin:0px 10px;
+    
+}
+
+.detailFooter .process{
+    background: rgba(103,58,183);
+}
+
+.mainTotal{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.noListMain{
+    display: flex;
+    justify-content: center;
+}
