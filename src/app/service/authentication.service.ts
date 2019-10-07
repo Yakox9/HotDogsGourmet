@@ -38,6 +38,9 @@ export class AuthenticationService {
           this.route.navigate(['/']);
         }
       }
+    }else{
+        localStorage.clear();
+        this.route.navigate(['/']);
     }
   }
 

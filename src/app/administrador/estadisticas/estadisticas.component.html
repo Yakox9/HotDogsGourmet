@@ -1,0 +1,21 @@
+<div class="header">
+  <mat-card class="cardItem" *ngFor="let item of sucarsal">
+    <mat-card-header class="cardHeader">
+      <mat-card-title class="title">{{item.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="cardContent">
+        <p>Fecha: {{item.date.toDateString()}}</p>
+    </mat-card-content>
+    <mat-card-footer class="cardFooter">
+        <mat-icon>monetization_on</mat-icon>
+        <p>Bs {{item.mount}}</p>
+    </mat-card-footer>
+  </mat-card>
+</div>
+
+<mat-grid-list class="estadisticas" cols="4"  rowHeight="43.8%">
+  <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+    {{tile.text}}
+  </mat-grid-tile>
+</mat-grid-list>
+

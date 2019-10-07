@@ -23,6 +23,7 @@ export class TiendaComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.auth.verifyLogin();
     this.user = JSON.parse(localStorage.getItem("user"));
     this.getProducts();
   }
