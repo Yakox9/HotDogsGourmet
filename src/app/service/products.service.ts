@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HOTDOGS,REFRESHMENTS } from '../interface/products';
+import { HOTDOGS,REFRESHMENTS,PRODUCTS } from '../interface/products';
 import {Product} from '../interface/product';
 import { Observable, of } from 'rxjs';
 import { DetailForSale } from '../interface/detail-for-sale';
@@ -18,6 +18,9 @@ export class ProductsService {
      }
   }
 
+  getProductsAll(): Observable<Product[]>{
+    return of(PRODUCTS);
+  }
   setListDetail(item:DetailForSale){
     this.listDetail.push(item);
     

@@ -15,6 +15,9 @@ import { TiendaMainComponent } from './tienda/tienda-main/tienda-main.component'
 import { ModalDetailComponent } from './tienda/modal-detail/modal-detail.component';
 import { DetailBillComponent } from './tienda/detail-bill/detail-bill.component';
 import { EstadisticasComponent } from './administrador/estadisticas/estadisticas.component';
+import { SucursalComponent } from './administrador/sucursal/sucursal.component';
+import { ProductosComponent } from './administrador/productos/productos.component';
+import { AlmacenComponent } from './administrador/almacen/almacen.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { EstadisticasComponent } from './administrador/estadisticas/estadisticas
     TiendaMainComponent,
     ModalDetailComponent,
     DetailBillComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    SucursalComponent,
+    ProductosComponent,
+    AlmacenComponent
   ],
   imports: [
     BrowserModule,

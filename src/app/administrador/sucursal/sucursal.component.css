@@ -1,0 +1,44 @@
+.sucursalMain{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sucursalMain .sucursalInfo{
+    height: 100%;
+    width: 58%;
+}
+
+.sucursalMain .sucursalInfo .sucursalInfoHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #3f51b5d8;
+}
+
+.sucursalMain .sucursalInfo .sucursalInfoHeader .buttonHeader{
+    background: #3f51b5d8;
+}
+
+.sucursalMain .sucursalInfo .sucursalInfoHeader .groupButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sucursalMain .sucursalInfo .listProducts{
+    width: 100%;
+}
+
+.sucursalMain .sucursalInfo .listProducts .ProductItem{
+    width: 100%;
+    background: #3f51b5d8;
+    display: flex;
+    justify-content: space-between;
+}
+.sucursalMain .productoInfo{
+    height: 100%;
+    width: 40%;
+    background: aqua;
+}

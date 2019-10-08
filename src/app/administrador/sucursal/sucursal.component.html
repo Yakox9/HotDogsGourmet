@@ -1,0 +1,30 @@
+<main class="sucursalMain">
+    <div class="sucursalInfo">
+        <div class="sucursalInfoHeader">
+            <h2>Sucursales</h2>
+            <div class="groupButton">
+                <button mat-icon-button mat-raised-button  class="buttonHeader"> <mat-icon>add</mat-icon></button>
+            </div>
+        </div>
+        <mat-accordion>
+        <mat-expansion-panel *ngFor="let sucursal of sucursales">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{sucursal.name}}
+              </mat-panel-title>
+              <mat-panel-description>
+                Productos de la sucursal {{sucursal.name}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="listProducts">
+                <div class="ProductItem" *ngFor="let product of products">
+                    <h5>{{product.name}}</h5>
+                </div>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="productoInfo">
+
+    </div>
+</main>
