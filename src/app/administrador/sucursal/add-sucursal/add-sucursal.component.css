@@ -1,0 +1,54 @@
+.mainInfo{
+    color: #3f51b5d8;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mainInfo .mainInfoTitle{
+    text-align: center;
+}
+
+.mainInfo .sucursalInfo{
+    width: 95%;
+    height: 100%;
+    background: #424242;
+    border-radius: 5px;
+}
+
+.mainInfo .sucursalInfo .mainForm{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding:  5px 20px;
+}
+.mainInfo .sucursalInfo .mainForm > *{
+    width: 100%;
+}
+
+.buttonSection{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cancelButton{
+    background: crimson;
+}
+.aceptButton{
+    background: lawngreen;
+    margin-right:5px 
+}
+
+.mainInfoHeader{
+    display: flex;
+    width: 95%;
+    padding: 0;
+    height: 100%;
+}
+
+.mainInfoTitleSection{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+}

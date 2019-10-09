@@ -3,7 +3,7 @@
         <div class="sucursalInfoHeader">
             <h2>Sucursales</h2>
             <div class="groupButton">
-                <button mat-icon-button mat-raised-button  class="buttonHeader"> <mat-icon>add</mat-icon></button>
+                <button (click)="addSucursal()" mat-icon-button mat-raised-button  class="buttonHeader"> <mat-icon>add</mat-icon></button>
             </div>
         </div>
         <mat-accordion>
@@ -17,16 +17,18 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
             <div class="listProducts">
-                <div class="ProductItem" *ngFor="let product of products">
-                    <h4>{{product.name}}</h4>
-                    <mat-divider></mat-divider>
+                <div (click)="activedProduct(product,sucursal)"  class="ProductItem" *ngFor="let product of products" matRipple
+                [matRippleCentered]="centered"
+                >
+                    <h3 class="productTitle">{{product.name}}</h3>
+                    <h4 [ngClass]="(product.status==true)?'statusAvailable':'statusDisable'" class="productStatus">{{(product.status==true)?"Disponible":'Agotado'}}</h4>
                 </div>
-                
             </div>
           </mat-expansion-panel>
         </mat-accordion>
     </div>
-    <div class="productoInfo">
-
+    <div [ngClass]="(typeInfo===1)?'infoActive':''" class="productoInfo">
+        <chd-productos-edit [product]="product" [sucursal]="sucursal" *ngIf="typeInfo===2"></chd-productos-edit>
+        <chd-add-sucursal (sucursalEmit)="actionSucursal($event)" [products]="products" *ngIf="typeInfo===3"></chd-add-sucursal>
     </div>
 </main>

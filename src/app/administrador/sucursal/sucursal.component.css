@@ -36,10 +36,10 @@
     width: 100%;
 }
 
-.sucursalMain .sucursalInfo .listProducts .ProductItem{
+.sucursalMain .sucursalInfo .listProducts .ProductItem,
+.sucursalMain .sucursalInfo .listProducts .ProductItem .mat-button-wrapper{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     margin: 5px 0px;
     cursor: pointer;
     padding: 0 15px;
@@ -48,11 +48,53 @@
 .sucursalMain .sucursalInfo .listProducts .ProductItem:hover{
     opacity: .5;
     background: #3f51b5d8;
-    width: 95%;
+    width: 97%;
     border-radius: 10px;
 }
 .sucursalMain .productoInfo{
     height: 100%;
     width: 40%;
-    background: aqua;
+}
+
+.sucursalMain .infoActive{
+    background: url("../../../assets/adminS.jpg");
+    background-size: cover;
+}
+
+.sucursalMain .sucursalInfo .listProducts .ProductItem .productTitle{
+    width: 50%;
+    display: flex;
+    justify-content: start;
+}
+
+
+.sucursalMain .sucursalInfo .listProducts .ProductItem .productStatus,
+.sucursalMain .sucursalInfo .listProducts .ProductItem .otherOption,
+.sucursalMain .sucursalInfo .listProducts .ProductItem .options{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px
+}
+
+
+.statusAvailable{
+    color: springgreen;
+}
+
+.statusDisable{
+    color: darkorange;
+}
+
+.panelButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editButton{
+    color: royalblue;
+}
+.deleteButton{
+    color:red;
 }

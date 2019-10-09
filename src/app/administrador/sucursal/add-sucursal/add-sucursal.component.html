@@ -1,0 +1,38 @@
+<main class="mainInfo">
+    <div class="mainInfoHeader">
+        <div class="mainInfoTitleSection">
+            <h2 class="mainInfoTitle">Añadir Sucursal</h2>
+        </div>
+        <div class="buttonSection">
+            <button mat-button mat-raised-button mat-icon-button class="aceptButton"><mat-icon>done</mat-icon></button>
+            <button (click)="cancelSucursal()" mat-button mat-raised-button mat-icon-button class="cancelButton" ><mat-icon>clear</mat-icon></button>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="sucursalInfo">
+        <div class="mainForm">
+            <mat-form-field>
+                <input [(ngModel)]="sucursal.name" matInput type="text" placeholder="Nombre">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput [(ngModel)]="sucursal.direccion" type="text" placeholder="Dirección">
+            </mat-form-field>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    Productos
+                </mat-expansion-panel-header>
+                <ng-template matExpansionPanelContent>
+                    <mat-selection-list #productss>
+                        <mat-list-option *ngFor="let product of products">
+                            {{product.name}}
+                        </mat-list-option>
+                    </mat-selection-list>
+                    <p>
+                        Options selected: {{productss.selectedOptions.selected.length}}
+                    </p>
+                </ng-template>
+            </mat-expansion-panel>
+        </div>
+    </div>
+</main>

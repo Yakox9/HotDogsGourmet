@@ -18,6 +18,8 @@ import { EstadisticasComponent } from './administrador/estadisticas/estadisticas
 import { SucursalComponent } from './administrador/sucursal/sucursal.component';
 import { ProductosComponent } from './administrador/productos/productos.component';
 import { AlmacenComponent } from './administrador/almacen/almacen.component';
+import { AddSucursalComponent } from './administrador/sucursal/add-sucursal/add-sucursal.component';
+import { ProductosEditComponent } from './administrador/productos/productos-edit/productos-edit.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { AlmacenComponent } from './administrador/almacen/almacen.component';
     EstadisticasComponent,
     SucursalComponent,
     ProductosComponent,
-    AlmacenComponent
+    AlmacenComponent,
+    AddSucursalComponent,
+    ProductosEditComponent
   ],
   imports: [
     BrowserModule,

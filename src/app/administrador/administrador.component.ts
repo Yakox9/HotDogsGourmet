@@ -23,5 +23,4 @@ export class AdministradorComponent implements OnInit {
   changeActive(id){
     this.active=id;
   }
-
 }
