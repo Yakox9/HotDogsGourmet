@@ -27,15 +27,29 @@
     align-items: center;
 }
 
+.pruebatext{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .sucursalMain .sucursalInfo .listProducts{
     width: 100%;
 }
 
 .sucursalMain .sucursalInfo .listProducts .ProductItem{
     width: 100%;
-    background: #3f51b5d8;
     display: flex;
     justify-content: space-between;
+    margin: 5px 0px;
+    cursor: pointer;
+    padding: 0 15px;
+    
+}
+.sucursalMain .sucursalInfo .listProducts .ProductItem:hover{
+    opacity: .5;
+    background: #3f51b5d8;
+    width: 95%;
+    border-radius: 10px;
 }
 .sucursalMain .productoInfo{
     height: 100%;
