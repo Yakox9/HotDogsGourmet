@@ -9,11 +9,12 @@ import { ProductsService} from '../../service/products.service';
 export class ProductosComponent implements OnInit {
   private products: Product[];
   private product: Product;
-  private active: number = 0;
+  private active: number;
   constructor(private productsProvider: ProductsService) { }
 
   ngOnInit() {
     this.getProducts();
+    this.active=0;
   }
 
   getProducts(){
@@ -32,6 +33,5 @@ export class ProductosComponent implements OnInit {
   addProduct(){
     this.clearProduct();
     this.active =1;
-    console.log(this.active);
   }
 }

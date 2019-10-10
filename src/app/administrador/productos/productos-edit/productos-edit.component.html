@@ -14,7 +14,7 @@
   </div>
   <div class="productInfo">
     <mat-form-field>
-      <input readonly [(ngModel)]="product.name" matInput type="text" placeholder="Nombre">
+      <input [readonly]="sucursal===true" [(ngModel)]="product.name" matInput type="text" placeholder="Nombre">
     </mat-form-field>
     <mat-form-field>
       <textarea matInput [(ngModel)]="product.description" placeholder="Descripción"></textarea>
