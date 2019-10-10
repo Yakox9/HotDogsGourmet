@@ -11,9 +11,13 @@ export class ProductosEditComponent implements OnInit {
   @Input() product: Product; 
   @Input() sucursal:Sucursal;
   private cantidad:number=0;
+  private sucursalExist: boolean =false;
   constructor() { }
 
   ngOnInit() {
+    if(typeof this.sucursal !== "undefined"){
+      this.sucursalExist=true;
+    }
   }
 
 }

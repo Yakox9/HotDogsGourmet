@@ -1,15 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Product } from 'src/app/interface/product';
+import { ProductsService} from '../../service/products.service';
 @Component({
   selector: 'chd-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-
-  constructor() { }
+  private products: Product[];
+  private product: Product;
+  private active: number = 0;
+  constructor(private productsProvider: ProductsService) { }
 
   ngOnInit() {
+    this.getProducts();
   }
 
+  getProducts(){
+    this.productsProvider.getProductsAll().subscribe(produc=>this.products=produc);
+  }
+
+  clearProduct(){
+    this.product = {id:0,
+    name: "",
+    price: 0,
+    type: 0,
+    description: "",
+    status: false }
+  }
+
+  addProduct(){
+    this.clearProduct();
+    this.active =1;
+    console.log(this.active);
+  }
 }

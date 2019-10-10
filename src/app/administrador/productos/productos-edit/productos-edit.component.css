@@ -37,6 +37,10 @@
 
 }
 
+.cantidadTitle{
+    margin: 0;
+}
+
 .productInfo > *{
     width: 100%;
 }

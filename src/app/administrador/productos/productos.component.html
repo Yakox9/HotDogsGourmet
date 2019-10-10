@@ -1,1 +1,30 @@
-<p>productos works!</p>
+<main class="productsMain">
+  <div class="productsSection" [ngClass]="(products.length>6)?'scrolling':''">
+    <div class="sectionHeader">
+      <h2>Productos</h2>
+      <div class="sectionButton">
+        <button (click)="addProduct()" mat-button mat-raised-button mat-icon-button class="buttonAdd">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="productItem" *ngFor="let product of products; let i =index"  matRipple>
+      <div class="producItemInfo">
+        <div class="productItemTitle">
+          <h2>{{product.name}}</h2>
+        </div>
+        <div class="productItemContent">
+          <h4>Descripción:</h4>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="productItemFooter">Precio: {{product.price}} Bs</div>
+      </div>
+      <div class="productItemImg">
+        <img src="../../../assets/Products/{{product.id}}.jpg" alt="{{product.name}}">
+      </div>
+    </div>
+  </div>
+  <div class="productInfo">
+    <chd-productos-edit *ngIf="active === 1" [product]="product"></chd-productos-edit>
+  </div>
+</main>
