@@ -15,7 +15,17 @@
 
 <mat-grid-list class="estadisticas" cols="4"  rowHeight="43.8%">
   <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
-    {{tile.text}}
+    <div>
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
 

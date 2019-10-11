@@ -21,7 +21,7 @@
       <input type="password" matInput [(ngModel)]="user.pass" placeholder="Contraseña">
     </mat-form-field>
      <mat-slide-toggle
-          [checked]="user.type">
+          [checked]="(user.type===0)?false:true">
         Tipo Admin
       </mat-slide-toggle>
   </div>

@@ -28,6 +28,7 @@ export class UsuariosComponent implements OnInit {
 
   selectUser(user){
     user.pass="";
+    console.log(user);
     this.user=user;
     this.active=0;
   }
