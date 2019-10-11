@@ -1,0 +1,25 @@
+<main class="mainUsers">
+    <div class="userList">
+        <div class="userListHeader">
+            <h2>Usuarios</h2>
+            <div class="sectionButton">
+                <button class="buttonAdd"  mat-button mat-icon-button mat-raised-button>
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <div (click)="selectUser(user)" class="userItem" *ngFor="let user of users"  matRipple>
+            <div class="userHeader">
+                <h4>{{user.name}}</h4>
+                <h5> {{user.username}} </h5>
+                <h5>{{(user.type==0)?'Admin':'Tienda'}}</h5>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="userInfo">
+        <chd-user-edit *ngIf="active===0" [user]="user"></chd-user-edit>
+    </div>
+</main>

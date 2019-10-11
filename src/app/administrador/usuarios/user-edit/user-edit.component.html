@@ -1,0 +1,28 @@
+<div class="mainUserEdit">
+  <div class="userEdit">
+    <h2>Datos Usuario</h2>
+    <div class="sectionButton">
+      <button mat-button mat-icon-button class="buttonEdit">
+        <mat-icon>done</mat-icon>
+      </button>
+      <button mat-button mat-icon-button class="buttonDelete">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="formUser">
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="user.name" placeholder="Nombre">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput [(ngModel)]="user.username" placeholder="Usuario">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput [(ngModel)]="user.pass" placeholder="Contraseña">
+    </mat-form-field>
+     <mat-slide-toggle
+          [checked]="user.type">
+        Tipo Admin
+      </mat-slide-toggle>
+  </div>
+</div>

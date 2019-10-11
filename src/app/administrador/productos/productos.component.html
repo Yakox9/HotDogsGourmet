@@ -8,7 +8,7 @@
         </button>
       </div>
     </div>
-    <div class="productItem" *ngFor="let product of products; let i =index"  matRipple>
+    <div (click)="productEdit(product)" class="productItem" *ngFor="let product of products; let i =index"  matRipple>
       <div class="producItemInfo">
         <div class="productItemTitle">
           <h2>{{product.name}}</h2>

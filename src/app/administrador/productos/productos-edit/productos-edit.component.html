@@ -26,8 +26,5 @@
     <mat-slider [max]="100" [min]="0" [step]="1" [thumbLabel]="true" [tickInterval]="tickInterval"
       [(ngModel)]="cantidad">
     </mat-slider>
-    <mat-form-field *ngIf="sucursalExist===true">
-      <input readonly matInput [(ngModel)]="sucursal.name" type="text" placeholder="Cantidad">
-    </mat-form-field>
   </div>
 </div>

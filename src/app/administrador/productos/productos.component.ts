@@ -34,4 +34,9 @@ export class ProductosComponent implements OnInit {
     this.clearProduct();
     this.active =1;
   }
+
+  productEdit(product){
+    this.product=product;
+    this.active =1;
+  }
 }

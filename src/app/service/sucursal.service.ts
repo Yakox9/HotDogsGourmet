@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Sucursal } from '../interface/sucursal';
 import { Observable, of } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class SucursalService {
     {id:"4",name:"Rubio",direccion:"Colegio Solo"},
     {id:"5",name:"Zona Industrial",direccion:"Calle Principal, Panaderia"}
   ];
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getSucursales(): Observable<Sucursal[]>{
     return of(this.sucursales);

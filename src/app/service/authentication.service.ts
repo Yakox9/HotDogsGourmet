@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router'
 import { User } from '../interface/user';
+import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private http: HttpClient) { }
 
   AuthUser(username: string, pass: string){
     if(username === "barrioobrero" && pass === "perro"){

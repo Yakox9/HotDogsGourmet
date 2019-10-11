@@ -3,12 +3,14 @@ import { HOTDOGS,REFRESHMENTS,PRODUCTS } from '../interface/products';
 import {Product} from '../interface/product';
 import { Observable, of } from 'rxjs';
 import { DetailForSale } from '../interface/detail-for-sale';
+
+import {HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
   private listDetail: any=[];
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getProducts(band: boolean): Observable<Product[]> {
      if(band){

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {  FormsModule  } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { ProductosComponent } from './administrador/productos/productos.componen
 import { AlmacenComponent } from './administrador/almacen/almacen.component';
 import { AddSucursalComponent } from './administrador/sucursal/add-sucursal/add-sucursal.component';
 import { ProductosEditComponent } from './administrador/productos/productos-edit/productos-edit.component';
+import { UsuariosComponent } from './administrador/usuarios/usuarios.component';
+import { UserEditComponent } from './administrador/usuarios/user-edit/user-edit.component';
 
 
 @NgModule({
@@ -38,14 +41,17 @@ import { ProductosEditComponent } from './administrador/productos/productos-edit
     ProductosComponent,
     AlmacenComponent,
     AddSucursalComponent,
-    ProductosEditComponent
+    ProductosEditComponent,
+    UsuariosComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

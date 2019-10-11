@@ -1,0 +1,31 @@
+.userEdit{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #3f51b5d8;
+}
+
+.userEdit .sectionButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonEdit{
+    color: steelblue;
+    margin-right: 5px;
+}
+
+.buttonDelete{
+    color: firebrick;
+}
+
+.formUser{
+    background: #434343;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.formUser>*{
+    width: 100%;
+}

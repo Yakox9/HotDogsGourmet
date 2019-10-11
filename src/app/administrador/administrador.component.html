@@ -14,6 +14,7 @@
       <button mat-button (click)="changeActive(0)" [ngClass]="(active===0)?'active':''">Estadisticas</button>
       <button mat-button (click)="changeActive(2)" [ngClass]="(active===2)?'active':''">Sucursales</button>
       <button mat-button (click)="changeActive(1)" [ngClass]="(active===1)?'active':''">Productos</button>
+      <button mat-button (click)="changeActive(3)" [ngClass]="(active===1)?'active':''">Usuarios</button>
       <button mat-button (click)="logout()">Salir</button>
     </nav>
   </mat-drawer>
@@ -21,5 +22,6 @@
       <chd-estadisticas *ngIf="active===0"></chd-estadisticas>
       <chd-sucursal *ngIf="active===2"></chd-sucursal>
       <chd-productos *ngIf="active===1"></chd-productos>
+      <chd-usuarios *ngIf="active===3"></chd-usuarios>
   </mat-drawer-content>
 </mat-drawer-container>
