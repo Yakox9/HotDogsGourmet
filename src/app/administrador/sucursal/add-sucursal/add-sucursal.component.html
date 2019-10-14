@@ -4,7 +4,7 @@
             <h2 class="mainInfoTitle">Añadir Sucursal</h2>
         </div>
         <div class="buttonSection">
-            <button mat-button mat-raised-button mat-icon-button class="aceptButton"><mat-icon>done</mat-icon></button>
+            <button (click)="addSucursal()" mat-button mat-raised-button mat-icon-button class="aceptButton"><mat-icon>done</mat-icon></button>
             <button (click)="cancelSucursal()" mat-button mat-raised-button mat-icon-button class="cancelButton" ><mat-icon>clear</mat-icon></button>
         </div>
     </div>
@@ -16,20 +16,21 @@
             </mat-form-field>
 
             <mat-form-field>
-                <input matInput [(ngModel)]="sucursal.direccion" type="text" placeholder="Dirección">
+                <input matInput [(ngModel)]="sucursal.desc" type="text" placeholder="Dirección">
             </mat-form-field>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
                     Productos
                 </mat-expansion-panel-header>
                 <ng-template matExpansionPanelContent>
-                    <mat-selection-list #productss>
-                        <mat-list-option *ngFor="let product of products">
+                    <mat-selection-list  #list [(ngModel)]="selectedOptions" (ngModelChange)="onNgModelChange($event)">
+                        <mat-list-option [selected]="(product.cantidad!==0)?true:false"  [value]="product" *ngFor="let product of productss">
                             {{product.name}}
+                            <input matInput [(ngModel)]="product.cantidad" type="number" placeholder="Cant">
                         </mat-list-option>
                     </mat-selection-list>
                     <p>
-                        Options selected: {{productss.selectedOptions.selected.length}}
+                        Options selected: {{list.selectedOptions.selected.length}}
                     </p>
                 </ng-template>
             </mat-expansion-panel>

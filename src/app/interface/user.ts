@@ -1,7 +1,7 @@
 export interface User {
-    id: string,
+    _id: string,
     username: string,
     pass: string,
-    type: number,
+    type: boolean,
     name: string
 }

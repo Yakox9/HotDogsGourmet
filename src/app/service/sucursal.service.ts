@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Sucursal } from '../interface/sucursal';
+import { SucursalProduct } from '../interface/sucursalProduct';
 import { Observable, of } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
@@ -7,16 +7,27 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class SucursalService {
-  private sucursales: Sucursal[]=[
-    {id:"1",name:"Barrio Obrero",direccion:"calle 14"},
-    {id:"2",name:"Barrio Sucre",direccion:"La Normal"},
-    {id:"3",name:"Las Vegas",direccion:"Via Principal"},
-    {id:"4",name:"Rubio",direccion:"Colegio Solo"},
-    {id:"5",name:"Zona Industrial",direccion:"Calle Principal, Panaderia"}
-  ];
+
+  readonly URL_API= 'http://localhost:3000/productosucursal';/**Eliana */
   constructor(private http: HttpClient) { }
 
-  getSucursales(): Observable<Sucursal[]>{
-    return of(this.sucursales);
+ 
+
+  getSucursal():Observable<SucursalProduct[]>{
+    return this.http.get<SucursalProduct[]>(this.URL_API);
+  }
+
+  addSucursal(sucursal: SucursalProduct){
+    console.log(sucursal);
+    if(sucursal._id !== '' && (typeof sucursal._id !== 'undefined')){
+      console.log(sucursal._id);
+      this.http.put(`${this.URL_API}/${sucursal._id}`,sucursal).subscribe(data=>console.log(data));
+    }else{
+      this.http.post(this.URL_API,sucursal).subscribe(data=>console.log(data));
+    }
+  }
+
+  deleteSucursal(id: string){
+    this.http.delete(`${this.URL_API}/${id}`).subscribe(data=>console.log(data));
   }
 }

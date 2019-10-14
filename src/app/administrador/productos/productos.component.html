@@ -1,5 +1,5 @@
 <main class="productsMain">
-  <div class="productsSection" [ngClass]="(products.length>6)?'scrolling':''">
+  <div class="productsSection scrolling">
     <div class="sectionHeader">
       <h2>Productos</h2>
       <div class="sectionButton">
@@ -8,23 +8,24 @@
         </button>
       </div>
     </div>
-    <div (click)="productEdit(product)" class="productItem" *ngFor="let product of products; let i =index"  matRipple>
+    <div (click)="addProduct(product)" class="productItem" *ngFor="let product of products; let i =index"  matRipple>
       <div class="producItemInfo">
         <div class="productItemTitle">
           <h2>{{product.name}}</h2>
         </div>
         <div class="productItemContent">
           <h4>Descripción:</h4>
-          <p>{{product.description}}</p>
+          <p>{{product.desc}}</p>
         </div>
-        <div class="productItemFooter">Precio: {{product.price}} Bs</div>
+        <div class="productItemFooter" *ngIf="product.name!=='PERRITO DE MIL PESOS'">Precio: {{product.price}} Bs</div>
+        <div class="productItemFooter" *ngIf="product.name==='PERRITO DE MIL PESOS'">Precio: {{product.price}} Pesos</div>
       </div>
       <div class="productItemImg">
-        <img src="../../../assets/Products/{{product.id}}.jpg" alt="{{product.name}}">
+        <img src="../../../assets/Products/{{product.name}}.jpg" alt="{{product.name}}">
       </div>
     </div>
   </div>
   <div class="productInfo">
-    <chd-productos-edit *ngIf="active === 1" [product]="product"></chd-productos-edit>
+    <chd-productos-edit (cancelEmit)="updateView($event)"   *ngIf="active === 1" [product]="product" ></chd-productos-edit>
   </div>
 </main>

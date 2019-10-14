@@ -4,10 +4,10 @@
       <h2>Producto</h2>
     </div>
     <div class="sectionButton">
-      <button mat-button mat-raised-button mat-icon-button class="aceptButton">
+      <button (click)='(product._id=="")? aggProduct():editProduct()' mat-button mat-raised-button mat-icon-button class="aceptButton">
         <mat-icon>done</mat-icon>
       </button>
-      <button mat-button mat-raised-button mat-icon-button class="cancelButton">
+      <button (click)='(product._id=="")? cancelAdd():deleteProduct()' mat-button mat-raised-button mat-icon-button class="cancelButton">
         <mat-icon>clear</mat-icon>
       </button>
     </div>
@@ -17,14 +17,15 @@
       <input [readonly]="sucursal===true" [(ngModel)]="product.name" matInput type="text" placeholder="Nombre">
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput [(ngModel)]="product.description" placeholder="Descripción"></textarea>
+      <textarea matInput [(ngModel)]="product.desc" placeholder="Descripción"></textarea>
     </mat-form-field>
     <mat-form-field>
       <input matInput [(ngModel)]="product.price" type="number" placeholder="Precio">
     </mat-form-field>
-    <h5 class="cantidadTitle">Cantidad: </h5>
-    <mat-slider [max]="100" [min]="0" [step]="1" [thumbLabel]="true" [tickInterval]="tickInterval"
-      [(ngModel)]="cantidad">
-    </mat-slider>
+         <mat-slide-toggle
+          [(ngModel)]="product.type"
+          [checked]="product.type">
+        Refresco
+      </mat-slide-toggle>
   </div>
 </div>

@@ -17,32 +17,64 @@ export class TiendaComponent implements OnInit {
   products$: Product[];
   product:Product;
   productItem: DetailForSale;
+  private CR:Product[];
+  private SR:Product[];
   listProduct: any=[];
   private total:number=0;
   constructor(private auth: AuthenticationService,private productsProvider: ProductsService, public dialog: MatDialog) {
    }
 
-  ngOnInit() {
+   ngOnInit() {
     this.auth.verifyLogin();
     this.user = JSON.parse(localStorage.getItem("user"));
-    this.getProducts();
+    this.updateProducts();
   }
 
   logout(){
     this.auth.logoutUser();
   }
 
- getProducts() {
-      this.productsProvider.getProducts(this.productType)
-         .subscribe(products=> this.products$=products);
+  getProducts() {
+   
+   this.productsProvider.getProductos().subscribe((datos: Product[])=>this.SR=datos);
+     
  }
 
 
  changeProduct(band: boolean){
     if(this.productType !== band){
       this.productType = !this.productType;
-      this.getProducts();
+      if(this.productType===true){
+        this.products$=this.CR;
+      }else{
+        this.products$=this.SR;
+      }
+      
     }
+ }
+
+ async updateProducts(){
+  await this.getProducts();
+  setTimeout(() => {
+    this.filtrarProduct();
+  }, 300);
+}
+
+ filtrarProduct(){
+  this.CR=this.SR.filter((item:Product)=>{
+    if(item.type==true)
+      return false;
+    else
+      return true;
+  });
+  
+  this.SR=this.SR.filter((item:Product)=>{
+    if(item.type==true)
+      return true;
+    else
+      return false;
+  });
+  this.products$=this.CR;
  }
 
  openDialog(product: Product): void {

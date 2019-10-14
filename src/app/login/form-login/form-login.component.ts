@@ -7,7 +7,7 @@ import {User} from '../../interface/user';
 })
 export class FormLoginComponent implements OnInit {
   private hide: boolean = true;
-  private user:User={username:"",id:"",type:0,pass:"",name:""};
+  private user:User={username:"",_id:"",type:false,pass:"",name:""};
   @Output() userEmit = new EventEmitter<User>();
   constructor() { 
     

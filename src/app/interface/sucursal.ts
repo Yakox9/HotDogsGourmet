@@ -1,5 +1,5 @@
 export interface Sucursal {
-    id: string,
+    _id: string,
     name: string,
     direccion: string
 }

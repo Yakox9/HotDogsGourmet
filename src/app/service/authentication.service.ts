@@ -11,13 +11,13 @@ export class AuthenticationService {
 
   AuthUser(username: string, pass: string){
     if(username === "barrioobrero" && pass === "perro"){
-      let user: User ={id: "1", username: username, type: 1, name: "Barrio Obrero",pass:""};
+      let user: User ={_id: "1", username: username, type: false, name: "Barrio Obrero",pass:""};
       localStorage.setItem("user",JSON.stringify(user));
       this.route.navigate(['/tienda']);
     }
     else{
       if(username === "admin" && pass === "caliente"){
-        let user: User ={id: "2", username: username, type: 2, name: "Administrador",pass:""};
+        let user: User ={_id: "2", username: username, type: true, name: "Administrador",pass:""};
         localStorage.setItem("user",JSON.stringify(user));
         this.route.navigate(['/admin']);
       }else{
@@ -29,10 +29,10 @@ export class AuthenticationService {
   verifyLogin(){
     if(localStorage.getItem("user")!==null){
       let user: User = JSON.parse(localStorage.getItem("user"));
-      if(user.username === "barrioobrero" && user.type === 1){
+      if(user.username === "barrioobrero" && user.type === false){
         this.route.navigate(['/tienda']);
       }else{
-        if(user.type === 2 && user.username === "admin" ){
+        if(user.type === true && user.username === "admin" ){
           this.route.navigate(['/admin']);
         }else{
           localStorage.clear();

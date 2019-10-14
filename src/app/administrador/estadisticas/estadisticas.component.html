@@ -14,8 +14,24 @@
 </div>
 
 <mat-grid-list class="estadisticas" cols="4"  rowHeight="43.8%">
-  <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
-    <div>
+  <mat-grid-tile *ngFor="let tile of tiles; let i=index" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+    <div *ngIf="i==0" style="display: flex; justify-content: space-between; width: 100%; padding: 30px;">
+      <div style="width: 20%;">
+        <h3>Estadistica por Producto</h3>
+        <p style="color: blueviolet;">Se realiza una estadistica en base a los Productos Vendidos </p>
+      </div>
+      <div style="display: block; width: 70%;">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels1"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+      
+    </div>
+    <div *ngIf="i==1">
       <div style="display: block">
         <canvas baseChart
                 [datasets]="barChartData"
@@ -25,6 +41,31 @@
                 [chartType]="barChartType">
         </canvas>
       </div>
+      
+    </div>
+    <div *ngIf="i==2">
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+      
+    </div>
+    <div *ngIf="i==3">
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+      
     </div>
   </mat-grid-tile>
 </mat-grid-list>

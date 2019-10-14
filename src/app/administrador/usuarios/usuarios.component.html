@@ -13,13 +13,13 @@
             <div class="userHeader">
                 <h4>{{user.name}}</h4>
                 <h5> {{user.username}} </h5>
-                <h5>{{(user.type==0)?'Admin':'Tienda'}}</h5>
+                <h5>{{(user.type===true)?'Admin':'Tienda'}}</h5>
 
             </div>
         </div>
     </div>
 
     <div class="userInfo">
-        <chd-user-edit *ngIf="active===0" [user]="user"></chd-user-edit>
+        <chd-user-edit (cancelEmmit)="cargarInit($event)" *ngIf="active===0" [user]="user"></chd-user-edit>
     </div>
 </main>

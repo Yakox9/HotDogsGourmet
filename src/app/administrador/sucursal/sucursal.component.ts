@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sucursal } from 'src/app/interface/sucursal';
+import {SucursalProduct} from '../../interface/sucursalProduct'
 import {SucursalService} from '../../service/sucursal.service';
 import {ProductsService} from '../../service/products.service';
 import { Product } from 'src/app/interface/product';
@@ -9,11 +10,11 @@ import { Product } from 'src/app/interface/product';
   styleUrls: ['./sucursal.component.css']
 })
 export class SucursalComponent implements OnInit {
-  private sucursales: Sucursal[];
+  private sucursales: SucursalProduct[];
   private products: Product[];
   private typeInfo: number=1;
   private product: Product;
-  private sucursal: Sucursal;
+  private sucursal: SucursalProduct;
   constructor(private sucursalProviders: SucursalService,private productsProviders: ProductsService) { }
 
   ngOnInit() {
@@ -22,13 +23,13 @@ export class SucursalComponent implements OnInit {
   }
 
   getSucursal(){
-    this.sucursalProviders.getSucursales()
+    this.sucursalProviders.getSucursal()
         .subscribe(sucursales=>this.sucursales=sucursales);
   }
 
   getProducts(){
-    this.productsProviders.getProductsAll()
-        .subscribe(products=>this.products=products);
+    this.productsProviders.getProductos()
+        .subscribe((products: Product[])=>this.products=products);
   }
 
   activedProduct(product,sucursal){
@@ -37,13 +38,36 @@ export class SucursalComponent implements OnInit {
     this.sucursal = sucursal;
   }
 
+  editSucursal(sucursal){
+    this.sucursal=sucursal;
+    this.typeInfo=1;
+    setTimeout(() => {
+      this.typeInfo=3;
+    }, 200);
+    
+  }
+
+  clearSucursal(){
+    this.sucursal={_id:"",desc:"",name:"",productos:[]};
+  }
   addSucursal(){
-    this.typeInfo=3;
+    this.clearSucursal();
+    this.typeInfo=1;
+    setTimeout(() => {
+      this.typeInfo=3;
+    }, 200);
   }
 
   actionSucursal(sucursal){
-    if(typeof sucursal === "undefined"){
+    if(sucursal==0){
       this.typeInfo=1;
     }
+    else{
+        setTimeout(() => {
+          this.getSucursal();
+          this.typeInfo=1;
+        }, 300);
+    }
   }
+  
 }

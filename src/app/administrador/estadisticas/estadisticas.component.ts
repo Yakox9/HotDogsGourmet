@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FacturaService} from '../../service/factura.service';
+import {ProductsService } from '../../service/products.service';
+import {Factura } from '../../interface/factura';
+import {Product } from '../../interface/product';
 @Component({
   selector: 'chd-estadisticas',
   templateUrl: './estadisticas.component.html',
@@ -22,21 +25,75 @@ export class EstadisticasComponent implements OnInit {
     {name:"Zona Industrial",mount:100000,date: new Date(Date.now())},
     {name:"Paramillo",mount:500000,date: new Date(Date.now())}
   ];
-  constructor() { }
 
-  ngOnInit() {
+  private facturas: Factura[];
+  private product: Product[];
+  private prueba: any[];
+  private monto: number=0;
+  constructor(private facturaProvider: FacturaService, private productProvider: ProductsService) { }
+
+  async ngOnInit() {
+    await this.loadData();
+
+    setTimeout(async () => {
+      console.log(this.facturas);
+      console.log(this.product);
+     await this.loadLabel();
+      this.loadMonto();
+
+    }, 400);
+
   }
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
-  };  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  };
+  public barChartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels1 = [];
   public barChartType = 'bar';
-  public barChartLegend = true;  public barChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
+  public barChartLegend = true;  
+  public barChartData = [
+    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'}
   ];
 
+  public barChartData1 = [
+  ];
+
+
+  loadData(){
+    this.facturaProvider.getFactura().subscribe((data: Factura[])=>{
+      this.facturas=data;
+    });
+    this.productProvider.getProductos().subscribe((data: Product[])=>this.product=data);
+  }
+
+  loadLabel(){
+    this.product.forEach(element => {
+      this.barChartLabels1.push(element.name);
+    });
+    this.prueba=this.product;
+  }
+
+  loadMonto(){
+    this.facturas.forEach(element => {
+        element.product.forEach(element1 => {
+          this.prueba.forEach(item => {
+            if(item._id==element1.id_prod){
+              item.cantidad=item.cantidad+element1.cantidad;
+            }
+          });
+        });
+        this.monto=this.monto+element.total;
+    });
+  }
+
+  loadData1(){
+    this.prueba.forEach(element => {
+      let eleme={data: element.cantidad, label: element.name};
+      this.barChartData1.push(eleme);
+    });
+  }
 }
 export interface Tile {
   color: string;
